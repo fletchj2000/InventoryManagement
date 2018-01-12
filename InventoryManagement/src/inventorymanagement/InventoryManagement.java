@@ -42,6 +42,9 @@ public class InventoryManagement {
         translator.loadFile(filename);
     }
 
+    /**
+     * Launch console based input for the system.
+     */
     public void launchConsole() {
         Scanner scanner = new Scanner( System.in );
         
