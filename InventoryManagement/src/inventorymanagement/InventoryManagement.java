@@ -3,6 +3,7 @@ package inventorymanagement;
 import inventorymanagement.inventory.Inventory;
 import inventorymanagement.inventory.InventoryCommandProcessor;
 import inventorymanagement.inventory.translator.InventoryTranslator;
+import java.util.Scanner;
 
 /**
  *
@@ -41,13 +42,26 @@ public class InventoryManagement {
         translator.loadFile(filename);
     }
 
+    public void launchConsole() {
+        Scanner scanner = new Scanner( System.in );
+        
+        while(true) { //TODO Add a "quit" command?
+        
+            System.out.print( "Enter Command: " );
+            String input = scanner.nextLine();
+            processor.processCommand(input);
+        }
+    }
+    
     /**
      * @param args the command line arguments. This application does not expect
      * any command-line arguments.
      */
     public static void main(String[] args) {
         InventoryManagement inventoryManagement = new InventoryManagement();
-        inventoryManagement.loadFile("resources\\providedinput.txt");
+        //inventoryManagement.loadFile("resources\\providedinput.txt");
+        inventoryManagement.launchConsole();
     }
+    
 
 }
